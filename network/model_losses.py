@@ -11,20 +11,17 @@ import tensorflow as tf
 from losses import losses
 
 FLAGS = tf.app.flags.FLAGS
-
+args = Parser().get_parser().parse_args()
+hparams = create_hparams(args)
 
 def create_dis_loss(fake_predictions, real_predictions, targets_present):
     """Compute Discriminator loss across real/fake."""
 
-    missing = tf.cast(targets_present, tf.int32)
-    missing = 1 - missing
-    missing = tf.cast(missing, tf.bool)
-
     real_labels = tf.ones([FLAGS.batch_size, FLAGS.sequence_length])
     dis_loss_real = tf.losses.sigmoid_cross_entropy(
-        real_labels, real_predictions, weights=missing)
+        real_labels, real_predictions)
     dis_loss_fake = tf.losses.sigmoid_cross_entropy(
-        targets_present, fake_predictions, weights=missing)
+        targets_present, fake_predictions)
 
     dis_loss = (dis_loss_fake + dis_loss_real) / 2.
     return dis_loss, dis_loss_fake, dis_loss_real

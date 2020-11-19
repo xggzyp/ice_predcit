@@ -17,7 +17,8 @@ from network import attention_utils
 import tensorflow as tf
 from keras import initializers
 
-
+args = Parser().get_parser().parse_args()
+hparams = create_hparams(args)
 # def init_state(shape, name=None):
 #     return initializers.Zeros()
 
@@ -43,7 +44,7 @@ def spl(x, index):
 initial_state = initializers.Zeros()
 
 
-def dis_decoder_lstm(n_units, n_output, sequence, parser, n_steps_out):  # ,hparams
+def critic_seq2seq_vd_derivative(n_units, n_output, sequence, parser, n_steps_out):  # ,hparams
     def cell_lstm(input_l, state_l):
         decoder_lstm1 = LSTM(n_units, return_sequences=True, return_state=True, dropout=0.5, recurrent_dropout=0.5)(
             input_l,

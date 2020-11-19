@@ -10,6 +10,8 @@ class Parser(object):
         parser.add_argument("--max_epochs", default=100, help="Maximum Number of Epochs", type=int)
         parser.add_argument("--n_steps_in", default=5, help="Maximum Number of Epochs", type=int)
         parser.add_argument("--n_steps_out", default=2, help="Maximum Number of Epochs", type=int)
+        parser.add_argument("--n_input", default=5, help="Maximum Number of Epochs", type=int)
+        parser.add_argument("--n_output", default=2, help="Maximum Number of Epochs", type=int)
         parser.add_argument("--data_dir", default="../data/", help="directory of the Dataset")
         parser.add_argument("--hidden", default=512, help="Number of Neurons in the Hidden Layer", type=int)
         parser.add_argument("--dropout", default=0.2, help="Dropout Probab. for Pre-Final Layer", type=float)

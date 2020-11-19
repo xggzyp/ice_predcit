@@ -84,7 +84,7 @@ class MKGAN():
         # Build and compile the discriminator
         self.generator = self.build_generator()
         self.discriminator = self.build_discriminator()
-        self.discriminator.compile(loss='categorical_crossentropy',
+        self.discriminator.compile(loss='binary_crossentropy',
                                    optimizer=optimizer,
                                    metrics=['accuracy'])
 
