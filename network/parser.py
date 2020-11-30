@@ -16,6 +16,8 @@ class Parser(object):
         parser.add_argument("--hidden", default=512, help="Number of Neurons in the Hidden Layer", type=int)
         parser.add_argument("--dropout", default=0.2, help="Dropout Probab. for Pre-Final Layer", type=float)
         parser.add_argument("--attention_option", default="luong", help="The mehtod of attention")
+        parser.add_argument("--gen_train_strategy", default="cross_entor", help="The mehtod of attention")
+
 
         # parser.add_argument("--path", default="../", help="Base Path for the Folder")
         # parser.add_argument("--project", default="model", help="Project Folder")

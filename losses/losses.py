@@ -21,8 +21,8 @@ from __future__ import print_function
 
 import tensorflow as tf
 
-args = Parser().get_parser().parse_args()
-hparams = create_hparams(args)
+# args = Parser().get_parser().parse_args()
+# hparams = create_hparams(args)
 def discriminator_loss(predictions, labels, missing_tokens):
     """Discriminator loss based on predictions and labels.
     Args:
